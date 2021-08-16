@@ -1,27 +1,24 @@
 package ru.pizza.models;
 
 /**
- * Дата класс Заказы
+ * Класс Заказы
  * @author Kantemir Tatarkanov 10.08.2021
  */
 public class Order {
     private final long id; /** уникальный идентификатор заказа */
     private final long sellerId; /** уникальный идентификатор продавца */
-    private final Pizza[] pizzas; /** названия заказанных пиц */
-    private final double cost; /** стоимость заказа */
+    private final long[] pizzas; /** названия заказанных пиц */
 
     /**
      * Конструктор класса Order
      * @param id уникальный идентификатор заказа
      * @param sellerId уникальный идентификатор продавца
      * @param pizzas название заказанных пиц
-     * @param cost стоимость заказа
      */
-    public Order(long id, long sellerId, Pizza[] pizzas, double cost) {
+    public Order(long id, long sellerId, long[] pizzas) {
         this.id = id;
         this.sellerId = sellerId;
         this.pizzas = pizzas;
-        this.cost = cost;
     }
 
     /** Получить значение поля id */
@@ -35,12 +32,7 @@ public class Order {
     }
 
     /** Получить значение поля pizzas */
-    public Pizza[] getPizzas() {
+    public long[] getPizzas() {
         return pizzas;
-    }
-
-    /** Получить значение поля cost */
-    public double getCost() {
-        return cost;
     }
 }
