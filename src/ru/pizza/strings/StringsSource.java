@@ -19,7 +19,7 @@ public class StringsSource {
     public static final double costMushroom = 5.50;
     public static final double costCarbonara = 7.25;
 
-    /** Дополнитильные ингредиенты */
+    /** Дополнительные ингредиенты */
     public static final String ingredientTomatoes = "Помидоры";
     public static final String ingredientJalapeno = "Халапеньо";
     public static final String ingredientChilli = "Чилли";
@@ -27,7 +27,7 @@ public class StringsSource {
     public static final String ingredientParmesan = "Пармезан";
     public static final String ingredientOlives = "Оливки";
 
-    /** Цены на дополнитильные ингредиенты */
+    /** Цены на дополнительные ингредиенты */
     public static final double ingredientTomatoesCost = 1.25;
     public static final double ingredientJalapenoCost = 2.00;
     public static final double ingredientChilliCost = 1.00;
@@ -35,7 +35,7 @@ public class StringsSource {
     public static final double ingredientParmesanCost = 1.50;
     public static final double ingredientOlivesCost = 3.00;
 
-    /** Данные продавцов продавцов */
+    /** Данные продавцов */
     public static final long sellerOlegId = 1010;
     public static final String sellerOlegName = "Олег Сырный";
     public static final int sellerOlegAge = 24;

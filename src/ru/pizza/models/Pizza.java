@@ -1,55 +1,33 @@
 package ru.pizza.models;
 
-/**
- * Базовый класс модели Pizza
- * @author Kantemir Tatarkanov 10.08.2021
- */
-public class Pizza {
+import org.jetbrains.annotations.Nullable;
 
-    private final long id; /** Уникальный идентификатор */
-    private final String name; /** Поле название */
-    private final double cost; /** Поле стоимость */
-    private final String[] ingredients; /** Поле ингредиенты */
-    private final double[] ingredientsCost; /** Цены на ингредиенты */
+import java.util.List;
 
-    /**
-     * Конструктор класса Pizza
-     * @param id уникальный идентификатор
-     * @param name название пиццы
-     * @param cost стоимость пиццы
-     * @param ingredients ингредиенты
-     * @param ingredientsCost Цены на ингредиенты
-     */
-    public Pizza(long id, String name, double cost, String[] ingredients, double[] ingredientsCost) {
-        this.id = id;
-        this.name = name;
-        this.cost = cost;
-        this.ingredients = ingredients;
-        this.ingredientsCost = ingredientsCost;
+public abstract class Pizza {
+    protected final Dough dough;
+    protected final Sauce sauce;
+
+    public Pizza(Dough dough, Sauce sauce) {
+        this.sauce = sauce;
+        this.dough = dough;
     }
 
     /** Получить значение поля id */
-    public long getId() {
-        return id;
-    }
+    abstract long getId();
 
     /** Получить значение поля name */
-    public String getName() {
-        return name;
-    }
+    abstract String getName();
 
     /** Получить значение поля cost */
-    public double getCost() {
-        return cost;
-    }
+    abstract double getCost();
+
+    /** Получить значение getIngredientCost */
+    abstract double getIngredientCost();
 
     /** Получить значение поля ingredients */
-    public String[] getIngredients() {
-        return ingredients;
-    }
+    abstract List<String> getIngredients();
 
-    /** Получить значение поля ingredientsCost */
-    public double[] getIngredientsCost() {
-        return ingredientsCost;
-    }
+    /** Получить значение поля ingredients */
+    abstract void addIngredients(List<String> ingredients);
 }
