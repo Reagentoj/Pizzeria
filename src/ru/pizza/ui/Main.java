@@ -14,8 +14,5 @@ public class Main {
         Margarita margarita = new Margarita(Dough.Thick, Sauce.Cheese);
         margarita.addIngredients(Arrays.asList(Ingredient.Chilli, Ingredient.Capers));
         System.out.println(margarita.getName());
-        System.out.println(margarita.getIngredientCost());
-        System.out.println(margarita.getIngredients());
-        System.out.println(margarita.getCost());
     }
 }
