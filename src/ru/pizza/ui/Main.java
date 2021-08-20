@@ -2,10 +2,9 @@ package ru.pizza.ui;
 
 import ru.pizza.models.Dough;
 import ru.pizza.models.Ingredient;
-import ru.pizza.models.Margarita;
+import ru.pizza.models.pizzas.Margarita;
 import ru.pizza.models.Sauce;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Main {

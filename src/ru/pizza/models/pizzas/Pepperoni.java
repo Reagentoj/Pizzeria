@@ -1,8 +1,10 @@
-package ru.pizza.models;
+package ru.pizza.models.pizzas;
+
+import ru.pizza.models.*;
 
 import java.util.Arrays;
 
-public class Pepperoni extends Pizza{
+public class Pepperoni extends Pizza {
 
     public Pepperoni(Dough dough, Sauce sauce) {
         super(dough, sauce);

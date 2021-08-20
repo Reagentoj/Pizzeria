@@ -5,6 +5,8 @@ public enum Ingredient {
 
     Jalapeno(2.00),
 
+    Mushrooms(1.75),
+
     Chilli(1.00),
 
     Capers(2.50),
