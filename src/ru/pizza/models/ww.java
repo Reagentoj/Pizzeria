@@ -1,4 +1,4 @@
 package ru.pizza.models;
 
-public class gg {
+public class ww {
 }
