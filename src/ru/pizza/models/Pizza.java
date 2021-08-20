@@ -1,7 +1,5 @@
 package ru.pizza.models;
 
-import org.jetbrains.annotations.Nullable;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -34,7 +32,7 @@ public abstract class Pizza {
             totalPrice += ingredient.getCost();
         }
         return totalPrice;
-    };
+    }
 
     /** Получить значение поля ingredients */
     public List<Ingredient> getIngredients() {
