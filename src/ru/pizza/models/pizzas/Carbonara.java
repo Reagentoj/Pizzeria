@@ -18,6 +18,7 @@ public class Carbonara extends Pizza {
     @Override
     protected void createDefaultPizza() {
         ingredients.addAll(
-                Arrays.asList(Ingredient.Capers, Ingredient.Parmesan, Ingredient.OliveOil, Ingredient.Ham, Ingredient.Oregano));
+                Arrays.asList(Ingredient.Capers, Ingredient.Parmesan,
+                        Ingredient.OliveOil, Ingredient.Ham, Ingredient.Oregano));
     }
 }

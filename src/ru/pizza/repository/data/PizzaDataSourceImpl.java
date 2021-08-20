@@ -15,8 +15,8 @@ public class PizzaDataSourceImpl implements PizzaDataSource {
     private final List<Order> orders = new ArrayList<>();
 
     private void initData() {
-
         pizzas.add(new Margarita(Dough.Thick, Sauce.Cheese));
+
     }
 
     @Override
