@@ -15,17 +15,17 @@ public abstract class Pizza {
         createDefaultPizza();
     }
 
-    /** Получить значение поля name */
+    /** Получить название пиццы */
     public String getName() {
         return getClass().getSimpleName();
     }
 
-    /** Получить значение поля cost */
+    /** Получить цену пиццы, состоящую из цены за тесто, соус и индредиентов */
     public double getCost() {
-        return dough.getCost() * sauce.getCost() * getIngredientCost();
+        return dough.getCost() + sauce.getCost() + getIngredientCost();
     }
 
-    /** Получить значение getIngredientCost */
+    /** Получить цену за ингредиенты пиццы */
     public double getIngredientCost() {
         double totalPrice = 0.00;
         for (Ingredient ingredient : ingredients) {

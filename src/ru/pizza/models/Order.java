@@ -1,5 +1,7 @@
 package ru.pizza.models;
 
+import java.util.List;
+
 /**
  * Класс Заказы
  * @author Kantemir Tatarkanov 10.08.2021
@@ -7,7 +9,7 @@ package ru.pizza.models;
 public class Order {
     private final long id; /** уникальный идентификатор заказа */
     private final long sellerId; /** уникальный идентификатор продавца */
-    private final long[] pizzas; /** названия заказанных пиц */
+    private final List<Pizza> pizzas; /** названия заказанных пиц */
 
     /**
      * Конструктор класса Order
@@ -15,7 +17,7 @@ public class Order {
      * @param sellerId уникальный идентификатор продавца
      * @param pizzas название заказанных пиц
      */
-    public Order(long id, long sellerId, long[] pizzas) {
+    public Order(long id, long sellerId, List<Pizza> pizzas) {
         this.id = id;
         this.sellerId = sellerId;
         this.pizzas = pizzas;
@@ -31,8 +33,9 @@ public class Order {
         return sellerId;
     }
 
-    /** Получить значение поля pizzas */
-    public long[] getPizzas() {
+    /** Получить список пицц */
+    public List<Pizza> getPizzas() {
         return pizzas;
     }
+
 }

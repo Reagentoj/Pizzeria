@@ -1,33 +1,33 @@
 package ru.pizza.models;
 
 public enum Ingredient {
-    Tomatoes(1.25),
+    Tomatoes(0.25),
 
-    Jalapeno(2.00),
+    Jalapeno(0.70),
 
-    Mushrooms(1.75),
+    Mushrooms(0.75),
 
-    Chilli(1.00),
+    Chilli(0.20),
 
-    Capers(2.50),
+    Capers(0.50),
 
-    Parmesan(1.50),
+    Parmesan(0.60),
 
-    Mozzarella(1.50),
+    Mozzarella(0.80),
 
-    Emmental(1.25),
+    Emmental(0.75),
 
-    Gorgonzola(1.75),
+    Gorgonzola(0.55),
 
-    Olives(3.00),
+    Olives(0.75),
 
-    Ham(1.25),
+    Ham(0.90),
 
-    Oregano(1.00),
+    Oregano(0.35),
 
-    Oil(0.50),
+    Oil(0.10),
 
-    OliveOil(1.00);
+    OliveOil(0.15);
 
     private double cost;
     Ingredient(double cost){
