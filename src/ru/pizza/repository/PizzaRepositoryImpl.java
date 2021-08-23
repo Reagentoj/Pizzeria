@@ -64,8 +64,9 @@ public class PizzaRepositoryImpl implements PizzaRepository {
                     if (seller.getId() == order.getSellerId()) {
                         countOfSell++;
                     }
-                    countOfSell = 0;
+                    countOfSales.put(seller.getId(), countOfSell);
                 }
+                countOfSell = 0;
             }
             for (Seller seller : sellers) {
                 if (bestSellerId == seller.getId()) {
@@ -80,6 +81,7 @@ public class PizzaRepositoryImpl implements PizzaRepository {
     /** Получить старшего продавца */
     @Override
     public Seller getOldestSeller() {
+
         return null;
     }
 
