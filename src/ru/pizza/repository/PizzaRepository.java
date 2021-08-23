@@ -4,16 +4,18 @@ package ru.pizza.repository;
 import ru.pizza.models.Order;
 import ru.pizza.models.Seller;
 
+import java.util.List;
+
 public interface PizzaRepository {
     /** Получить стоимость ингредиентов в заказе
      * @return стоимость ингредиентов пиццы */
-    double getIngredientsCostInOrder(long id);
+    double getIngredientsCostInOrder(long OrderId);
     /** получить количество проданных пицц */
-    int getCountSalesOfPizza();
+    int getAmountSalesOfPizza();
     /** Получить продавца с наибольшим количеством продаж */
     String getSellerWithMostSells();
     /** Получить старшего продавца  */
-    Seller getOldestSeller();
+    String getOldestSeller();
     /** Получить заказ в котором более двух пицц */
-    Order getOrderWithMoreThanTwoPizzas();
+    List<Long> getOrderIdWithMoreThanAmountPizzas(int amount);
 }

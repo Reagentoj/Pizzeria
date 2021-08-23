@@ -1,14 +1,13 @@
 package ru.pizza.repository;
 
+import com.sun.xml.internal.ws.client.ClientSchemaValidationTube;
 import ru.pizza.models.Ingredient;
 import ru.pizza.models.Order;
 import ru.pizza.models.Pizza;
 import ru.pizza.models.Seller;
 import ru.pizza.repository.data.PizzaDataSource;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class PizzaRepositoryImpl implements PizzaRepository {
     private final PizzaDataSource dataSource;
@@ -20,7 +19,7 @@ public class PizzaRepositoryImpl implements PizzaRepository {
     /** Получить стоимость ингредиентов в заказе
      * @return стоимость ингредиентов пиццы */
     @Override
-    public double getIngredientsCostInOrder(long id) {
+    public double getIngredientsCostInOrder(long orderId) {
         List<Order> orders = dataSource.getOrders();
         double getIngredientsCost = 0.0;
         if (!dataSource.getOrders().isEmpty()) {
@@ -37,16 +36,16 @@ public class PizzaRepositoryImpl implements PizzaRepository {
 
     /** получить количество проданных пицц */
     @Override
-    public int getCountSalesOfPizza() {
+    public int getAmountSalesOfPizza() {
         List<Order> orders = dataSource.getOrders();
-        int countOfPizzas = 0;
+        int amountOfPizzas = 0;
         if(!dataSource.getOrders().isEmpty()) {
             for (Order order : orders) {
                 List<Pizza> pizzas = order.getPizzas();
-                countOfPizzas = pizzas.size();
+                amountOfPizzas = pizzas.size();
             }
         }
-        return countOfPizzas;
+        return amountOfPizzas;
     }
 
     /**  Получить продавца с наибольшим количеством продаж */
@@ -68,26 +67,59 @@ public class PizzaRepositoryImpl implements PizzaRepository {
                 }
                 countOfSell = 0;
             }
-            for (Seller seller : sellers) {
-                if (bestSellerId == seller.getId()) {
-                    bestSellerName = seller.getName();
+            for (Map.Entry<Long, Integer> pair : countOfSales.entrySet()) {
+                if (Objects.equals(pair.getValue(), Collections.max(countOfSales.values()))) {
+                    bestSellerId = pair.getKey();
+                }
+                for (Seller seller : sellers) {
+                    if (bestSellerId == seller.getId()) {
+                        bestSellerName = seller.getName();
+                    }
                 }
             }
         }
-
         return bestSellerName;
     }
 
     /** Получить старшего продавца */
     @Override
-    public Seller getOldestSeller() {
+    public String getOldestSeller() {
+        List<Seller> sellers = dataSource.getSellers();
+        Map<Long, Integer> sellersIdAndOld = new HashMap<>();
+        long oldestSellerId = 0;
+        String oldestSellerName = null;
 
-        return null;
+        if (!dataSource.getSellers().isEmpty()) {
+            for (Seller seller : dataSource.getSellers()) {
+                sellersIdAndOld.put(seller.getId(), seller.getAge());
+            }
+            for (Map.Entry<Long, Integer> pair : sellersIdAndOld.entrySet()) {
+                if (Objects.equals(pair.getValue(), Collections.max(sellersIdAndOld.values()))) {
+                    oldestSellerId = pair.getKey();
+                }
+                for (Seller seller : sellers) {
+                    if (seller.getId() == oldestSellerId) {
+                        oldestSellerName = seller.getName();
+                    }
+                }
+            }
+        }
+        return oldestSellerName;
     }
 
-    /** Получить заказ в котором более двух пицц */
+    /** Получить заказы в котором более чем amount пицц */
     @Override
-    public Order getOrderWithMoreThanTwoPizzas() {
-        return null;
+    public List<Long> getOrderIdWithMoreThanAmountPizzas(int amount) {
+        List<Order> orders = dataSource.getOrders();
+        List<Long> pizzasIds = new ArrayList<>();
+
+        if (!dataSource.getOrders().isEmpty()) {
+            for (Order order : orders) {
+                if (order.getPizzas().size() >= amount) {
+                    pizzasIds.add(order.getId());
+                }
+            }
+        }
+        return pizzasIds;
     }
 }
