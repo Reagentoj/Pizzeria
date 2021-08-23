@@ -13,5 +13,16 @@ public class PizzaAdapter {
     }
 
     public void show() {
+        String getIngredientsCostInOrder = String.format("Стоимость ингредиентов заказа %.2f", repository.getIngredientsCostInOrder(1030));
+        System.out.println(getIngredientsCostInOrder);
+
+        String getAmountSalesOfPizza = String.format("Общее количество проданныъ пицц %d", repository.getAmountSalesOfPizza());
+        System.out.println(getAmountSalesOfPizza);
+        String getSellerWithMostSells = String.format("Лучший продавец %s", repository.getSellerWithMostSells());
+        System.out.println(getSellerWithMostSells);
+        String getOldestSeller = String.format("Старший по возрасту продавец %s", repository.getOldestSeller());
+        System.out.println(getOldestSeller);
+        String getOrderIdWithMoreThanAmountPizzas = "Заказы в котором более чем 3 пиццы " + repository.getOrderIdWithMoreThanAmountPizzas(3);
+        System.out.println(getOrderIdWithMoreThanAmountPizzas);
     }
 }

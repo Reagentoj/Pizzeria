@@ -27,10 +27,11 @@ public abstract class Pizza {
 
     /** Получить цену за ингредиенты пиццы */
     public double getIngredientCost() {
-        double totalPrice = 0.00;
+        double totalPrice = 0.0;
         for (Ingredient ingredient : ingredients) {
             totalPrice += ingredient.getCost();
         }
+
         return totalPrice;
     }
 

@@ -15,6 +15,10 @@ public class PizzaDataSourceImpl implements PizzaDataSource {
     private final List<Seller> sellers = new ArrayList<>();
     private final List<Order> orders = new ArrayList<>();
 
+    public PizzaDataSourceImpl() {
+        initData();
+    }
+
     private void initData() {
 
         sellers.add(new Seller(101, "Олег Сырный", 24));
@@ -62,24 +66,13 @@ public class PizzaDataSourceImpl implements PizzaDataSource {
                 PizzaMaker.createDefaultCarbonara(Dough.Thin, Sauce.Tomato, null)
         )));
     }
-
-    @Override
-    public List<Pizza> getPizzas() {
-        return null;
-    }
-
     @Override
     public List<Seller> getSellers() {
-        return null;
+        return sellers;
     }
 
     @Override
     public List<Order> getOrders() {
-        return null;
-    }
-
-    @Override
-    public List<Margarita> margaritas() {
-        return null;
+        return orders;
     }
 }

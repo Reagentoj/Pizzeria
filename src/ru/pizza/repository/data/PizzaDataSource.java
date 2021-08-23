@@ -8,8 +8,6 @@ import ru.pizza.models.pizzas.Margarita;
 import java.util.List;
 
 public interface PizzaDataSource {
-    List<Pizza> getPizzas();
     List<Seller> getSellers();
     List<Order> getOrders();
-    List<Margarita> margaritas();
 }

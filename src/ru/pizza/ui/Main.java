@@ -1,28 +1,16 @@
 package ru.pizza.ui;
 
-import ru.pizza.models.*;
-import ru.pizza.models.pizzas.Margarita;
-
-import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.Date;
+import ru.pizza.repository.PizzaRepository;
+import ru.pizza.repository.PizzaRepositoryImpl;
+import ru.pizza.repository.data.PizzaDataSource;
+import ru.pizza.repository.data.PizzaDataSourceImpl;
 
 public class Main {
 
     public static void main(String[] args) {
-        Order order = new Order(1080, 1,
-                Arrays.asList(PizzaMaker.createDefaultCarbonara(Dough.Thin, Sauce.Tomato,
-                        Arrays.asList(Ingredient.Mozzarella, Ingredient.Oregano)),
-                        PizzaMaker.createDefaultMargarita(Dough.Thin, Sauce.Cheese, null)));
-
-        Margarita margarita = new Margarita(Dough.Thick, Sauce.Cheese);
-        margarita.addIngredients(Arrays.asList(Ingredient.Chilli, Ingredient.Capers));
-
-
-        for (Pizza pizza : order.getPizzas()) {
-            System.out.println(pizza.getName());
-        }
-
-        System.out.println(order.getPizzas().get(0).getName());
+        PizzaDataSource pizzaDataSource = new PizzaDataSourceImpl();
+        PizzaRepository pizzaRepository = new PizzaRepositoryImpl(pizzaDataSource);
+        PizzaAdapter adapter = new PizzaAdapter(pizzaRepository, pizzaDataSource);
+        adapter.show();
     }
 }

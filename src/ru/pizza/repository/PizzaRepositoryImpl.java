@@ -1,7 +1,5 @@
 package ru.pizza.repository;
 
-import com.sun.xml.internal.ws.client.ClientSchemaValidationTube;
-import ru.pizza.models.Ingredient;
 import ru.pizza.models.Order;
 import ru.pizza.models.Pizza;
 import ru.pizza.models.Seller;
@@ -24,9 +22,11 @@ public class PizzaRepositoryImpl implements PizzaRepository {
         double getIngredientsCost = 0.0;
         if (!dataSource.getOrders().isEmpty()) {
             for (Order order : orders) {
-                List<Pizza> orderPizzas = order.getPizzas();
-                for (Pizza pizza : orderPizzas) {
-                    getIngredientsCost = pizza.getIngredientCost();
+                if (order.getId() == orderId) {
+                    List<Pizza> orderPizzas = order.getPizzas();
+                    for (Pizza pizza : orderPizzas) {
+                        getIngredientsCost += pizza.getIngredientCost();
+                    }
                 }
             }
         }
@@ -42,7 +42,7 @@ public class PizzaRepositoryImpl implements PizzaRepository {
         if(!dataSource.getOrders().isEmpty()) {
             for (Order order : orders) {
                 List<Pizza> pizzas = order.getPizzas();
-                amountOfPizzas = pizzas.size();
+                amountOfPizzas += pizzas.size();
             }
         }
         return amountOfPizzas;
