@@ -22,7 +22,7 @@ public class PizzaAdapter {
         System.out.println(getSellerWithMostSells);
         String getOldestSeller = String.format("Старший по возрасту продавец %s", repository.getOldestSeller());
         System.out.println(getOldestSeller);
-        String getOrderIdWithMoreThanAmountPizzas = "Заказы в котором более чем 3 пиццы " + repository.getOrderIdWithMoreThanAmountPizzas(3);
+        String getOrderIdWithMoreThanAmountPizzas = "Номера заказов в котором более чем 3 пиццы " + repository.getOrderIdWithMoreThanAmountPizzas(3);
         System.out.println(getOrderIdWithMoreThanAmountPizzas);
     }
 }
