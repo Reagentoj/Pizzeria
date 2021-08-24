@@ -13,7 +13,7 @@ public class PizzaAdapter {
     }
 
     public void show() {
-        String getIngredientsCostInOrder = String.format("Стоимость ингредиентов заказа %.2f", repository.getIngredientsCostInOrder(1030));
+        String getIngredientsCostInOrder = String.format("Стоимость ингредиентов заказа %.2f", repository.getIngredientsCostInOrder(1010));
         System.out.println(getIngredientsCostInOrder);
 
         String getAmountSalesOfPizza = String.format("Общее количество проданныъ пицц %d", repository.getAmountSalesOfPizza());

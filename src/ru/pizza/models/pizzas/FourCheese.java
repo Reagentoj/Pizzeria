@@ -19,6 +19,6 @@ public class FourCheese extends Pizza {
     protected void createDefaultPizza() {
         ingredients.addAll(
                 Arrays.asList(Ingredient.Parmesan, Ingredient.Mozzarella, Ingredient.Emmental,
-                        Ingredient.Gorgonzola, Ingredient.OliveOil, Ingredient.Oregano));
+                        Ingredient.Gorgonzola, Ingredient.Oregano, Ingredient.OliveOil));
     }
 }

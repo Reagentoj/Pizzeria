@@ -18,6 +18,6 @@ public class Pepperoni extends Pizza {
     @Override
     protected void createDefaultPizza() {
         ingredients.addAll(
-                Arrays.asList(Ingredient.Parmesan, Ingredient.Mozzarella, Ingredient.OliveOil, Ingredient.Oregano));
+                Arrays.asList(Ingredient.Parmesan, Ingredient.Mozzarella, Ingredient.Oregano, Ingredient.OliveOil));
     }
 }

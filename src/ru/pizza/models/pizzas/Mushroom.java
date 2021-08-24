@@ -17,6 +17,6 @@ public class Mushroom extends Pizza {
     @Override
     protected void createDefaultPizza() {
         ingredients.addAll(
-                Arrays.asList(Ingredient.Tomatoes, Ingredient.Mozzarella, Ingredient.OliveOil, Ingredient.Mushrooms));
+                Arrays.asList(Ingredient.Tomatoes, Ingredient.Mozzarella, Ingredient.Mushrooms, Ingredient.OliveOil));
     }
 }

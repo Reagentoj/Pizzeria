@@ -1,5 +1,6 @@
 package ru.pizza.repository;
 
+import ru.pizza.models.Ingredient;
 import ru.pizza.models.Order;
 import ru.pizza.models.Pizza;
 import ru.pizza.models.Seller;
@@ -20,12 +21,21 @@ public class PizzaRepositoryImpl implements PizzaRepository {
     public double getIngredientsCostInOrder(long orderId) {
         List<Order> orders = dataSource.getOrders();
         double getIngredientsCost = 0.0;
+        boolean addingIngredientsSwitch = false;
+
         if (!dataSource.getOrders().isEmpty()) {
             for (Order order : orders) {
                 if (order.getId() == orderId) {
                     List<Pizza> orderPizzas = order.getPizzas();
                     for (Pizza pizza : orderPizzas) {
-                        getIngredientsCost += pizza.getIngredientCost();
+                        List<Ingredient> ingredients = pizza.getIngredients();
+                        for (Ingredient ingredient : ingredients) {
+                            if (addingIngredientsSwitch) {
+                                getIngredientsCost += ingredient.getCost();
+                            } else if (ingredient.name().equals(Ingredient.OliveOil.name())) {
+                                addingIngredientsSwitch = true;
+                            }
+                        }
                     }
                 }
             }
@@ -42,9 +52,10 @@ public class PizzaRepositoryImpl implements PizzaRepository {
         if(!dataSource.getOrders().isEmpty()) {
             for (Order order : orders) {
                 List<Pizza> pizzas = order.getPizzas();
-                amountOfPizzas += pizzas.size();
+                amountOfPizzas = pizzas.size();
             }
         }
+
         return amountOfPizzas;
     }
 
@@ -78,6 +89,7 @@ public class PizzaRepositoryImpl implements PizzaRepository {
                 }
             }
         }
+
         return bestSellerName;
     }
 
@@ -104,6 +116,7 @@ public class PizzaRepositoryImpl implements PizzaRepository {
                 }
             }
         }
+
         return oldestSellerName;
     }
 
@@ -120,6 +133,7 @@ public class PizzaRepositoryImpl implements PizzaRepository {
                 }
             }
         }
+
         return pizzasIds;
     }
 }
