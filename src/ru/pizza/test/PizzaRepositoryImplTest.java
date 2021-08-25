@@ -1,27 +1,29 @@
 package ru.pizza.test;
 
-import org.junit.Assert;
-import org.junit.Assert.*;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
 import org.mockito.Mockito;
 import ru.pizza.models.*;
 import ru.pizza.repository.PizzaRepository;
 import ru.pizza.repository.PizzaRepositoryImpl;
 import ru.pizza.repository.data.PizzaDataSource;
+
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.*;
 
-public class PizzaRepositoryImplTest {
+class PizzaRepositoryImplTest {
     private final List<Seller> sellers = new ArrayList<>();
     private final List<Order> orders = new ArrayList<>();
+    private final List<Ingredient> ingredients = new ArrayList<>();
     PizzaDataSource dataSource;
     PizzaRepository pizzaRepository;
 
     @BeforeEach
-    private void setUp() {
+    public void setUp() {
         dataSource = Mockito.mock(PizzaDataSource.class);
         pizzaRepository = new PizzaRepositoryImpl(dataSource);
         initTestData();
@@ -31,31 +33,29 @@ public class PizzaRepositoryImplTest {
     }
 
     @Test
-    public void getIngredientsCostsInOrder() {
-        long orderId = 3;
-        Assert.assertEquals(pizzaRepository.getIngredientsCostInOrder(orderId),);
-        pizzaRepository.getIngredientsCostInOrder(orderId);
+    void getIngredientsCostInOrder() {
+        long orderId = 1;
+        double ingredientCost = Ingredient.Capers.getCost();
+        assertEquals(pizzaRepository.getIngredientsCostInOrder(orderId), ingredientCost, 0.1);
     }
 
-//    @Test
-//    public void getAmountSalesOfPizza() {
-//
-//    }
-//
-//    @Test
-//    public void getSellerWithMostSells() {
-//
-//    }
-//
-//    @Test
-//    public void getOldestSeller() {
-//
-//    }
-//
-//    @Test
-//    public void getOrderIdWithMoreThanAmountPizzas() {
-//
-//    }
+    @Test
+    void getAmountSalesOfPizza() {
+    }
+
+    @Test
+    void getSellerWithMostSells() {
+        String sellerName = "Oleg";
+        assertEquals(pizzaRepository.getSellerWithMostSells(), sellerName);
+    }
+
+    @Test
+    void getOldestSeller() {
+    }
+
+    @Test
+    void getOrderIdWithMoreThanAmountPizzas() {
+    }
 
     private void initTestData() {
         sellers.add(new Seller(10, "Vasya", 20));
@@ -63,7 +63,7 @@ public class PizzaRepositoryImplTest {
         sellers.add(new Seller(12, "Nastya", 23));
         orders.add(new Order(1, 10,
                 Arrays.asList(PizzaMaker.createDefaultPepperoni(Dough.Thick, Sauce.Cheese,
-                        Arrays.asList(Ingredient.Capers, Ingredient.Gorgonzola)))));
+                        Arrays.asList(Ingredient.Capers)))));
         orders.add(new Order(2, 11,
                 Arrays.asList(PizzaMaker.createDefaultMargarita(Dough.Thin, Sauce.Cheese,
                         Arrays.asList(Ingredient.Jalapeno, Ingredient.Olives, Ingredient.Tomatoes, Ingredient.Mushrooms)))));

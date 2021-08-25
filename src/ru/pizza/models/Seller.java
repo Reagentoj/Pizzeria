@@ -1,5 +1,7 @@
 package ru.pizza.models;
 
+import java.util.Objects;
+
 /**
  * Класс продавец
  * @author Kantemir Tatarkanov 10.08.2021
@@ -35,5 +37,18 @@ public class Seller {
     /** Получить значение поля age */
     public int getAge() {
         return age;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Seller seller = (Seller) o;
+        return id == seller.id && age == seller.age && Objects.equals(name, seller.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, age);
     }
 }

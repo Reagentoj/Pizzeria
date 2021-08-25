@@ -1,6 +1,7 @@
 package ru.pizza.models;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Класс Заказы
@@ -38,4 +39,16 @@ public class Order {
         return pizzas;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Order order = (Order) o;
+        return id == order.id && sellerId == order.sellerId && Objects.equals(pizzas, order.pizzas);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, sellerId, pizzas);
+    }
 }

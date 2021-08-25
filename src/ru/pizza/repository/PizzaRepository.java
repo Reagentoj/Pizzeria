@@ -10,7 +10,7 @@ public interface PizzaRepository {
     /** Получить стоимость ингредиентов в заказе
      * @return стоимость ингредиентов пиццы */
     double getIngredientsCostInOrder(long OrderId);
-    /** получить количество проданных пицц */
+    /** Получить количество проданных пицц */
     int getAmountSalesOfPizza();
     /** Получить продавца с наибольшим количеством продаж */
     String getSellerWithMostSells();
