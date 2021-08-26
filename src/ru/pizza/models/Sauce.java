@@ -1,5 +1,6 @@
 package ru.pizza.models;
 
+
 public enum Sauce {
     Tomato(1),
     Cheese(1.5);

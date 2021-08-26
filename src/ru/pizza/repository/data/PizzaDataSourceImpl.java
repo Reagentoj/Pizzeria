@@ -1,17 +1,12 @@
 package ru.pizza.repository.data;
 
 import ru.pizza.models.*;
-
-import java.security.PrivateKey;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import ru.pizza.models.pizzas.*;
-
 
 public class PizzaDataSourceImpl implements PizzaDataSource {
-
     private final List<Seller> sellers = new ArrayList<>();
     private final List<Order> orders = new ArrayList<>();
 

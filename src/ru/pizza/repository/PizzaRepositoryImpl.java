@@ -5,8 +5,8 @@ import ru.pizza.models.Order;
 import ru.pizza.models.Pizza;
 import ru.pizza.models.Seller;
 import ru.pizza.repository.data.PizzaDataSource;
-
 import java.util.*;
+
 
 public class PizzaRepositoryImpl implements PizzaRepository {
     private final PizzaDataSource dataSource;
@@ -36,6 +36,7 @@ public class PizzaRepositoryImpl implements PizzaRepository {
                                 addingIngredientsSwitch = true;
                             }
                         }
+                        addingIngredientsSwitch = false;
                     }
                 }
             }
@@ -52,7 +53,7 @@ public class PizzaRepositoryImpl implements PizzaRepository {
         if(!dataSource.getOrders().isEmpty()) {
             for (Order order : orders) {
                 List<Pizza> pizzas = order.getPizzas();
-                amountOfPizzas = pizzas.size();
+                amountOfPizzas += pizzas.size();
             }
         }
 
@@ -124,16 +125,16 @@ public class PizzaRepositoryImpl implements PizzaRepository {
     @Override
     public List<Long> getOrderIdWithMoreThanAmountPizzas(int amount) {
         List<Order> orders = dataSource.getOrders();
-        List<Long> pizzasIds = new ArrayList<>();
+        List<Long> orderIds = new ArrayList<>();
 
         if (!dataSource.getOrders().isEmpty()) {
             for (Order order : orders) {
                 if (order.getPizzas().size() >= amount) {
-                    pizzasIds.add(order.getId());
+                    orderIds.add(order.getId());
                 }
             }
         }
 
-        return pizzasIds;
+        return orderIds;
     }
 }

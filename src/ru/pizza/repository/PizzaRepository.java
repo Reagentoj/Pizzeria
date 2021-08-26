@@ -1,10 +1,7 @@
 package ru.pizza.repository;
 
-
-import ru.pizza.models.Order;
-import ru.pizza.models.Seller;
-
 import java.util.List;
+
 
 public interface PizzaRepository {
     /** Получить стоимость ингредиентов в заказе

@@ -2,10 +2,8 @@ package ru.pizza.models.pizzas;
 
 
 import ru.pizza.models.*;
-
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
+
 
 public class Margarita extends Pizza {
 

@@ -1,5 +1,6 @@
 package ru.pizza.models;
 
+
 public enum Ingredient {
     Tomatoes(0.25),
 
@@ -30,7 +31,8 @@ public enum Ingredient {
     OliveOil(0.15);
 
     private double cost;
-    Ingredient(double cost){
+
+    Ingredient(double cost) {
         this.cost = cost;
     }
 
