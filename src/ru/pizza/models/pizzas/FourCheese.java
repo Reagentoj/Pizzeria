@@ -2,6 +2,7 @@ package ru.pizza.models.pizzas;
 
 import ru.pizza.models.*;
 import java.util.Arrays;
+import java.util.List;
 
 
 public class FourCheese extends Pizza {
@@ -13,6 +14,11 @@ public class FourCheese extends Pizza {
     @Override
     public long getId() {
         return Ids.FourCheeseId;
+    }
+
+    @Override
+    protected List<Ingredient> getDefaultIngredients() {
+        return null;
     }
 
     @Override

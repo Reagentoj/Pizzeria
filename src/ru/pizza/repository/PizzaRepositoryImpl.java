@@ -45,6 +45,7 @@ public class PizzaRepositoryImpl implements PizzaRepository {
         return getIngredientsCost;
     }
 
+
     /** получить количество проданных пицц */
     @Override
     public int getAmountSalesOfPizza() {
@@ -68,7 +69,6 @@ public class PizzaRepositoryImpl implements PizzaRepository {
         String bestSellerName = null;
         int countOfSell = 0;
         long bestSellerId = 0;
-
         if (!dataSource.getOrders().isEmpty()) {
             for (Seller seller : sellers) {
                 for (Order order : dataSource.getOrders()) {
@@ -79,7 +79,7 @@ public class PizzaRepositoryImpl implements PizzaRepository {
                 }
                 countOfSell = 0;
             }
-            for (Map.Entry<Long, Integer> pair : countOfSales.entrySet()) {
+            for (Map.Entry<Long, Integer> pair : countOfSales.entrySet()) {                     // заменить Long на Seller
                 if (Objects.equals(pair.getValue(), Collections.max(countOfSales.values()))) {
                     bestSellerId = pair.getKey();
                 }
@@ -91,12 +91,14 @@ public class PizzaRepositoryImpl implements PizzaRepository {
             }
         }
 
-        return bestSellerName;
+        return bestSellerName;                                                                  // вернуть объект Seller
     }
+
+                                                                                                 // добавить метод лучший продавец по сумме проданного
 
     /** Получить старшего продавца */
     @Override
-    public String getOldestSeller() {
+    public String getOldestSeller() {                                                            // заменить String на Seller
         List<Seller> sellers = dataSource.getSellers();
         Map<Long, Integer> sellersIdAndOld = new HashMap<>();
         long oldestSellerId = 0;
@@ -106,7 +108,7 @@ public class PizzaRepositoryImpl implements PizzaRepository {
             for (Seller seller : dataSource.getSellers()) {
                 sellersIdAndOld.put(seller.getId(), seller.getAge());
             }
-            for (Map.Entry<Long, Integer> pair : sellersIdAndOld.entrySet()) {
+            for (Map.Entry<Long, Integer> pair : sellersIdAndOld.entrySet()) {                  // заменить Long на Seller
                 if (Objects.equals(pair.getValue(), Collections.max(sellersIdAndOld.values()))) {
                     oldestSellerId = pair.getKey();
                 }
@@ -118,12 +120,12 @@ public class PizzaRepositoryImpl implements PizzaRepository {
             }
         }
 
-        return oldestSellerName;
+        return oldestSellerName;                                                                 // вернуть объект Seller
     }
 
     /** Получить заказы в котором более чем amount пицц */
     @Override
-    public List<Long> getOrderIdWithMoreThanAmountPizzas(int amount) {
+    public List<Long> getOrderIdWithMoreThanAmountPizzas(int amount) {                          // Добавить Дату (диапазон в 2 месяца)
         List<Order> orders = dataSource.getOrders();
         List<Long> orderIds = new ArrayList<>();
 

@@ -2,6 +2,7 @@ package ru.pizza.models.pizzas;
 
 import ru.pizza.models.*;
 import java.util.Arrays;
+import java.util.List;
 
 
 public class Pepperoni extends Pizza {
@@ -13,6 +14,11 @@ public class Pepperoni extends Pizza {
     @Override
     public long getId() {
         return Ids.PepperoniId;
+    }
+
+    @Override
+    protected List<Ingredient> getDefaultIngredients() {
+        return null;
     }
 
     @Override

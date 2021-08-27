@@ -1,5 +1,6 @@
 package ru.pizza.ui;
 
+import ru.pizza.models.Ingredient;
 import ru.pizza.repository.PizzaRepository;
 import ru.pizza.repository.PizzaRepositoryImpl;
 import ru.pizza.repository.data.PizzaDataSource;
@@ -12,5 +13,7 @@ public class Main {
         PizzaRepository pizzaRepository = new PizzaRepositoryImpl(pizzaDataSource);
         PizzaAdapter adapter = new PizzaAdapter(pizzaRepository, pizzaDataSource);
         adapter.show();
+
+        Ingredient.valueOf("Oil");
     }
 }

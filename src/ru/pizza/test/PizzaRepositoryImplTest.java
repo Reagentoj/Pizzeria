@@ -16,8 +16,8 @@ import static org.junit.jupiter.api.Assertions.*;
 class PizzaRepositoryImplTest {
     private final List<Seller> sellers = new ArrayList<>();
     private final List<Order> orders = new ArrayList<>();
-    PizzaDataSource dataSource;
-    PizzaRepository pizzaRepository;
+    private PizzaDataSource dataSource;
+    private PizzaRepository pizzaRepository;
 
     @BeforeEach
     public void setUp() {
@@ -67,20 +67,20 @@ class PizzaRepositoryImplTest {
         sellers.add(new Seller(12, "Nastya", 23));
         orders.add(new Order(1, 10,
                 Arrays.asList(
-                        PizzaMaker.createDefaultPepperoni(Dough.Thick, Sauce.Cheese,
+                        PizzaMaker.createPepperoni(Dough.Thick, Sauce.Cheese,
                                 Arrays.asList(Ingredient.Capers)),
-                        PizzaMaker.createDefaultMargarita(Dough.Thin, Sauce.Cheese,
+                        PizzaMaker.createMargarita(Dough.Thin, Sauce.Cheese,
                                 Arrays.asList(Ingredient.Capers, Ingredient.Oregano, Ingredient.OliveOil)))));
         orders.add(new Order(2, 12,
-                Arrays.asList(PizzaMaker.createDefaultMargarita(Dough.Thin, Sauce.Cheese,
+                Arrays.asList(PizzaMaker.createMargarita(Dough.Thin, Sauce.Cheese,
                         Arrays.asList(Ingredient.Jalapeno, Ingredient.Olives, Ingredient.Tomatoes, Ingredient.Mushrooms)))));
         orders.add(new Order(3, 12,
-                Arrays.asList(PizzaMaker.createDefaultCarbonara(Dough.Thick, Sauce.Tomato,
+                Arrays.asList(PizzaMaker.createCarbonara(Dough.Thick, Sauce.Tomato,
                         Arrays.asList(Ingredient.Mushrooms, Ingredient.Oregano, Ingredient.Ham, Ingredient.Chilli)))));
         orders.add(new Order(4, 12,
-                Arrays.asList(PizzaMaker.createDefaultFourCheese(Dough.Thin, Sauce.Tomato,
+                Arrays.asList(PizzaMaker.createFourCheese(Dough.Thin, Sauce.Tomato,
                         Arrays.asList(Ingredient.Chilli, Ingredient.Jalapeno, Ingredient.Mozzarella)))));
         orders.add(new Order(5, 11,
-                Arrays.asList(PizzaMaker.createDefaultPepperoni(Dough.Thin, Sauce.Cheese, null))));
+                Arrays.asList(PizzaMaker.createPepperoni(Dough.Thin, Sauce.Cheese, null))));
     }
 }

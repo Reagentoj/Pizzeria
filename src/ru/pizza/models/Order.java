@@ -9,6 +9,7 @@ import java.util.Objects;
  * @author Kantemir Tatarkanov 10.08.2021
  */
 public class Order {
+    //ДОБАВИТЬ ДАТУ заказа
     private final long id; /** уникальный идентификатор заказа */
     private final long sellerId; /** уникальный идентификатор продавца */
     private final List<Pizza> pizzas; /** названия заказанных пиц */

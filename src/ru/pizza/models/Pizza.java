@@ -27,7 +27,7 @@ public abstract class Pizza {
     }
 
     /** Получить цену за ингредиенты пиццы */
-    public double getIngredientCost() {
+    private double getIngredientCost() {
         double totalPrice = 0.0;
         for (Ingredient ingredient : ingredients) {
             totalPrice += ingredient.getCost();
@@ -51,6 +51,8 @@ public abstract class Pizza {
 
     /** Получить значение поля id */
     public abstract long getId();
+
+    protected abstract  List<Ingredient> getDefaultIngredients();
 
     @Override
     public boolean equals(Object o) {

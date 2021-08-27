@@ -3,6 +3,7 @@ package ru.pizza.models.pizzas;
 
 import ru.pizza.models.*;
 import java.util.Arrays;
+import java.util.List;
 
 
 public class Margarita extends Pizza {
@@ -17,8 +18,13 @@ public class Margarita extends Pizza {
     }
 
     @Override
+    protected List<Ingredient> getDefaultIngredients() {
+
+        return Arrays.asList(Ingredient.Tomatoes, Ingredient.Mozzarella, Ingredient.OliveOil);
+    }
+
+    @Override
     protected void createDefaultPizza() {
-        ingredients.addAll(
-                Arrays.asList(Ingredient.Tomatoes, Ingredient.Mozzarella, Ingredient.OliveOil));
+        ingredients.addAll(getDefaultIngredients());
     }
 }
